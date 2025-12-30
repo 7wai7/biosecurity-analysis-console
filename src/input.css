@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+}
+
+@source '../../node_modules/my-library/**/*.{js,ts}';
