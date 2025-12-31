@@ -4,3 +4,9 @@
 }
 
 @source '../../node_modules/my-library/**/*.{js,ts}';
+
+@layer base {
+  .hover-scale {
+    @apply transition duration-200 hover:scale-110;
+  }
+}
