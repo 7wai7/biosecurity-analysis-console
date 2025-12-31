@@ -24,7 +24,7 @@ export default function HeartbeatWaveform() {
     <div
       ref={ref}
       className={clsx(
-        "w-90 h-40 border border-white hide",
+        "w-90 h-40 border border-white mt-4 hide",
         "mask-[linear-gradient(to_right,transparent,black,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black,transparent)]"
       )}
     >

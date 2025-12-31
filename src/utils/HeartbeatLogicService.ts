@@ -82,6 +82,8 @@ export default class HeartbeatLogicService {
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
+    ctx.lineTo(this.canvas.width / 2, centerY);
+    ctx.lineTo(this.canvas.width, centerY);
 
     ctx.strokeStyle = "#ff00005b";
     ctx.lineWidth = 2;

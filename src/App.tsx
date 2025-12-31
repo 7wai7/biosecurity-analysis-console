@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <TopBar />
-      <main className="mt-6 flex flex-row h-full">
+      <main className="flex flex-row h-full">
         <LeftPanel />
         <CenterView />
         <RightPanel />

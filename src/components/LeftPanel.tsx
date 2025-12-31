@@ -6,7 +6,7 @@ export default function LeftPanel() {
 
   return (
     <section
-      className={"h-79 w-6"}
+      className={"h-79 w-6 my-auto"}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >

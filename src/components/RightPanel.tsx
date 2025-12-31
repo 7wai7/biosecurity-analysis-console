@@ -6,32 +6,34 @@ import WarningIcon from "./ui/WarningIcon";
 
 export default function RightPanel() {
   return (
-    <section className="mr-4 flex flex-col items-end">
-      <div className="flex flex-row gap-6 items-center">
-        <WarningIcon size={164} className="pulse-warning"/>
-        <div>
-          <div className="relative pr-6 overflow-hidden mb-4">
-            <div
-              className={clsx(
-                "absolute inset-0",
-                "bg-[repeating-linear-gradient(-45deg,rgba(255,166,0,0.3)_0,rgba(255,166,0,0.3)_20px,transparent_20px,transparent_30px)] bg-size-[42px_42px]",
-                "animate-[stripes-move_1s_linear_infinite]",
-                "mask-[linear-gradient(to_right,transparent,black)] [-webkit-mask-image:linear-gradient(to_right,transparent,black)]"
-              )}
-            />
-            <p className="relative text-gray-300 text-5xl font-serif">
-              WARNING
-            </p>
+    <section className="mr-4 flex flex-col items-end justify-between">
+      <div>
+        <div className="flex flex-row items-center">
+          <WarningIcon size={164} className="pulse-warning" />
+          <div>
+            <div className="relative pr-6 overflow-hidden mb-4">
+              <div
+                className={clsx(
+                  "absolute inset-0",
+                  "bg-[repeating-linear-gradient(-45deg,rgba(255,166,0,0.3)_0,rgba(255,166,0,0.3)_20px,transparent_20px,transparent_30px)] bg-size-[42px_42px]",
+                  "animate-[stripes-move_1s_linear_infinite]",
+                  "mask-[linear-gradient(to_right,transparent,black)] [-webkit-mask-image:linear-gradient(to_right,transparent,black)]"
+                )}
+              />
+              <p className="relative text-gray-300 text-5xl font-serif">
+                WARNING
+              </p>
+            </div>
+            <p className="text-orange-200">UNIDENTIFIED ORGANISM</p>
           </div>
-          <p className="text-orange-200">UNIDENTIFIED ORGANISM</p>
         </div>
-      </div>
-      <div className="flex flex-row justify-between w-full mb-6">
-        <p className="px-2 py-0.5 w-max text-gray-300 text-xs bg-yellow-950">
-          INFECTION STATUS:{" "}
-          <span className="text-red-400 font-semibold">{`[ACTIVE]`}</span>
-        </p>
-        <button className="text-orange-200 text-xs hover-scale">{`[REVIEW]`}</button>
+        <div className="flex flex-row justify-between w-full mb-6">
+          <p className="px-2 py-0.5 w-max text-gray-300 text-xs bg-yellow-950">
+            INFECTION STATUS:{" "}
+            <span className="text-red-400 font-semibold">{`[ACTIVE]`}</span>
+          </p>
+          <button className="text-orange-200 text-xs hover-scale">{`[REVIEW]`}</button>
+        </div>
       </div>
       <div className="flex flex-col gap-2">
         {vitals.map((v) => {
