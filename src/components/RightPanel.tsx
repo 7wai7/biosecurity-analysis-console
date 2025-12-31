@@ -1,8 +1,9 @@
 import clsx from "clsx";
+import HeartbeatWaveform from "./HeartbeatWaveform";
 
 export default function RightPanel() {
   return (
-    <section className="mr-4">
+    <section className="mr-4 flex flex-col items-end">
       <div className="flex flex-row gap-6 items-center hide">
         <p className="text-orange-300 text-9xl pulse-warning">⚠</p>
         <div className="relative pr-4 overflow-hidden">
@@ -17,6 +18,7 @@ export default function RightPanel() {
           <p className="relative text-white text-6xl">WARNING</p>
         </div>
       </div>
+      <HeartbeatWaveform />
     </section>
   );
 }
