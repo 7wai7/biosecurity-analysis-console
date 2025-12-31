@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 export default function LeftPanel() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <section

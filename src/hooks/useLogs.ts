@@ -1,4 +1,4 @@
-import createLogger from "./createLogger";
+import createLogger from "../utils/createLogger";
 import { logs as constLogs } from "../constants/logs";
 import { useCallback, useRef, useState } from "react";
 import type { Log } from "../types/types";
@@ -11,7 +11,7 @@ export default function useLogs() {
   }, []);
 
   const logger = useRef(
-    createLogger(constLogs, { ticker, maxDelay: 6000 })
+    createLogger(constLogs, { ticker, maxDelay: 10000 })
   ).current;
 
   const start = useCallback(() => {

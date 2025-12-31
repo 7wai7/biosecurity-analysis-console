@@ -17,6 +17,7 @@ export default function createLogger(
     if (index >= logs.length) return;
 
     const nextLog = logs[index++];
+    nextLog.time = Date.now();
     currentLogs = [...currentLogs, nextLog];
     ticker?.(currentLogs);
 

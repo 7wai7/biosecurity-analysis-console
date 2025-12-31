@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import useLogs from "../hooks/useLogs";
 
 export default function EventLog() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const { logs, start, cancel } = useLogs();
 
   useEffect(() => {
