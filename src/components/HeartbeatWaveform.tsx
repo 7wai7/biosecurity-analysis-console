@@ -4,7 +4,6 @@ import {
   useResizeDetector,
   type OnResizeCallback,
 } from "react-resize-detector";
-import clsx from "clsx";
 
 export default function HeartbeatWaveform() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,10 +22,11 @@ export default function HeartbeatWaveform() {
   return (
     <div
       ref={ref}
-      className={clsx(
-        "w-90 h-40 border border-white mt-4 hide",
-        "mask-[linear-gradient(to_right,transparent,black,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black,transparent)]"
-      )}
+      className="
+        w-90 h-40 border border-emerald-500/20 mt-4 hide
+        mask-[linear-gradient(to_right,transparent,black,transparent)]
+        [-webkit-mask-image:linear-gradient(to_right,transparent,black,transparent)]
+      "
     >
       <canvas ref={canvasRef} />
     </div>

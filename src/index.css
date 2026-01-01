@@ -52,8 +52,16 @@ button {
   }
 }
 
-.pulse-warning {
-  animation: pulse-warning 1s linear infinite;
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes pulse-warning {
@@ -68,15 +76,7 @@ button {
   }
 }
 
-.no-signal {
-  animation: opacity 2s steps(1, end) infinite;
-}
-
-.no-signal-linear {
-  animation: opacity 2s linear infinite;
-}
-
-@keyframes opacity {
+@keyframes flashing {
   0% {
     opacity: 1;
   }
@@ -85,29 +85,83 @@ button {
   }
 }
 
-@keyframes bg {
+@keyframes bg-pulse {
   0% {
-    background-color: 1;
+    background-color: rgba(255, 255, 255, 0.03);
   }
   50% {
-    opacity: 0;
-  }
-}
-
-
-
-.heartbeat-wave {
-  width: 100%;
-  height: 50px;
-  background: repeating-linear-gradient(90deg, red 0 2px, transparent 2px 20px);
-  animation: wave 1s linear infinite;
-}
-
-@keyframes wave {
-  0% {
-    background-position: 0 0;
+    background-color: rgba(255, 255, 255, 0.01);
   }
   100% {
-    background-position: 100% 0;
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+
+
+
+.scan-bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    rgba(120, 255, 180, 0.05),
+    rgba(120, 255, 180, 0.15),
+    rgba(120, 255, 180, 0.05)
+  );
+  overflow: hidden;
+}
+
+/* Основне заповнення */
+.scan-bar__fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(120, 255, 180, 0.4),
+    rgba(120, 255, 180, 0.8),
+    rgba(120, 255, 180, 0.4),
+    transparent
+  );
+  animation: scan-flow 2.4s linear infinite;
+}
+
+/* Яскравий "скан-імпульс" */
+.scan-bar__pulse {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(180, 255, 210, 0.9),
+    transparent
+  );
+  filter: blur(2px);
+  animation: scan-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes scan-flow {
+  from {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes scan-pulse {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(430%);
   }
 }

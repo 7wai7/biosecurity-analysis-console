@@ -21,11 +21,16 @@ export default function EventLog() {
     >
       <div
         className={clsx(
-          "absolute bottom-0 w-full overflow-hidden bg-black border border-white bevel rounded-tr-2xl rounded-tl-2xl transition-all duration-300",
+          "absolute bottom-0 w-full overflow-hidden bg-black border border-emerald-500/20 bevel rounded-tr-2xl rounded-tl-2xl transition-all duration-300",
           isOpen ? "h-96" : "h-20"
         )}
       >
-        <div className="absolute bottom-0 w-full flex flex-col gap-0.5 p-2 pt-4">
+        <div
+          className="
+            absolute bottom-0 flex flex-col gap-0.5
+            w-full p-2 pt-4
+          "
+        >
           {logs.map((l, index) => (
             <LogItem key={index} log={l} />
           ))}

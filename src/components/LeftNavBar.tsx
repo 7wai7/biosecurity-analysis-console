@@ -8,7 +8,7 @@ export default function LeftNavBar() {
           className={clsx(
             "bg-black pl-6 h-full",
             "transition-[width] duration-300 ease-out w-6 bg-amber-200 hover:w-60 overflow-hidden",
-            "border border-l-0 border-white bevel rounded-tr-2xl rounded-br-2xl"
+            "border border-l-0 border-emerald-500/20 bevel rounded-tr-2xl rounded-br-2xl"
           )}
         >
           <nav

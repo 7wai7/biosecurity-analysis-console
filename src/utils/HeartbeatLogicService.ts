@@ -3,12 +3,13 @@ export default class HeartbeatLogicService {
 
   y = 0; // позиція
   vy = 0; // швидкість
+  private lineSpeed = 2.4;
   private t = 0;
 
   private p: IPoint[] = [];
 
   // параметри пружини
-  stiffness = 1600; // k жорсткість
+  stiffness = 1200; // k жорсткість
   damping = 20; // c
 
   bpm = 60;
@@ -45,15 +46,15 @@ export default class HeartbeatLogicService {
     this.vy += force * this.dt;
     this.y += this.vy * this.dt;
 
-    this.t++;
+    this.t += this.lineSpeed;
 
     // семплінг кожні 2 апдейти
-    if ((this.t & 1) === 0) {
-      this.p.push({
-        t: this.t,
-        y: this.y,
-      });
-    }
+    // if ((this.t & 1) === 0) {
+    this.p.push({
+      t: this.t,
+      y: this.y,
+    });
+    // }
 
     // тримаємо ~.5 ширини canvas по часу
     const maxAge = this.canvas.width / 2;
@@ -65,9 +66,10 @@ export default class HeartbeatLogicService {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     if (this.p.length < 2) return;
-    ctx.filter = "blur(1px)"
+    ctx.filter = "blur(1px)";
 
     const centerY = this.canvas.height / 2;
+    const canvasWidth = this.canvas.width;
     const scaleX = 1; // px за tick
     const nowT = this.t;
 
@@ -77,17 +79,25 @@ export default class HeartbeatLogicService {
       const pt = this.p[i];
 
       // справа → зліва
-      const x = this.canvas.width / 2 - (nowT - pt.t) * scaleX;
+      const x = canvasWidth / 2 - (nowT - pt.t) * scaleX;
       const y = centerY + pt.y;
 
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
-    ctx.lineTo(this.canvas.width / 2, centerY);
-    ctx.lineTo(this.canvas.width, centerY);
+    ctx.lineTo(canvasWidth / 2, centerY);
+    ctx.lineTo(canvasWidth, centerY);
 
     ctx.strokeStyle = "red";
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(0, centerY);
+    ctx.lineTo(canvasWidth, centerY);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 7;
+    ctx.filter = "blur(17px)";
     ctx.stroke();
   }
 }
