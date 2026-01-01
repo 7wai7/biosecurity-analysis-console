@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import HeartbeatWaveform from "./HeartbeatWaveform";
 import { vitals } from "../constants/vitals";
 import getVitalColor from "../utils/getVitalColor";
-import WarningIcon from "./ui/WarningIcon";
+import HeartbeatWaveform from "../components/HeartbeatWaveform";
+import WarningIcon from "../components/ui/WarningIcon";
 
 export default function RightPanel() {
   return (

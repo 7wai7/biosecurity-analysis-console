@@ -1,8 +1,9 @@
-import BottomBar from "./components/BottomBar";
-import CenterView from "./components/CenterView";
-import LeftPanel from "./components/LeftPanel";
-import RightPanel from "./components/RightPanel";
-import TopBar from "./components/TopBar";
+import BottomBar from "./sections/BottomBar";
+import CenterView from "./sections/CenterView";
+import LeftPanel from "./sections/LeftPanel";
+import RightPanel from "./sections/RightPanel";
+import TopBar from "./sections/TopBar";
+
 
 function App() {
   return (

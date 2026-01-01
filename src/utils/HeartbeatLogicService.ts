@@ -35,7 +35,7 @@ export default class HeartbeatLogicService {
     if (this.bpm > 0) {
       const periodMs = 60000 / this.bpm;
       if (now - this.lastBeat >= periodMs) {
-        this.beat(6000);
+        this.beat(5000);
         this.lastBeat += periodMs;
       }
     }
@@ -47,8 +47,8 @@ export default class HeartbeatLogicService {
 
     this.t++;
 
-    // семплінг кожні 3 апдейти
-    if ((this.t & 2) === 0) {
+    // семплінг кожні 2 апдейти
+    if ((this.t & 1) === 0) {
       this.p.push({
         t: this.t,
         y: this.y,
@@ -65,6 +65,7 @@ export default class HeartbeatLogicService {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     if (this.p.length < 2) return;
+    ctx.filter = "blur(1px)"
 
     const centerY = this.canvas.height / 2;
     const scaleX = 1; // px за tick
@@ -85,8 +86,8 @@ export default class HeartbeatLogicService {
     ctx.lineTo(this.canvas.width / 2, centerY);
     ctx.lineTo(this.canvas.width, centerY);
 
-    ctx.strokeStyle = "#ff00005b";
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 1;
     ctx.stroke();
   }
 }

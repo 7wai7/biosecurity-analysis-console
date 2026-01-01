@@ -2,6 +2,8 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --darkgray: #272727;
 }
 
 #root {
@@ -23,20 +25,6 @@ button {
 
 .hide {
   /* visibility: hidden; */
-}
-
-.close-left-panel {
-  animation: close-left-panel 400ms forwards;
-}
-
-@keyframes close-left-panel {
-  0% {
-    width: 100%;
-  }
-
-  100% {
-    width: 0;
-  }
 }
 
 .bevel {
@@ -70,15 +58,43 @@ button {
 
 @keyframes pulse-warning {
   0% {
-    opacity: 0.6;
-  }
-  50% {
     opacity: 1;
   }
+  50% {
+    opacity: 0.3;
+  }
   100% {
-    opacity: 0.6;
+    opacity: 1;
   }
 }
+
+.no-signal {
+  animation: opacity 2s steps(1, end) infinite;
+}
+
+.no-signal-linear {
+  animation: opacity 2s linear infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes bg {
+  0% {
+    background-color: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+
 
 .heartbeat-wave {
   width: 100%;
