@@ -5,11 +5,11 @@ import WarningIcon from "../components/ui/WarningIcon";
 
 export default function RightPanel() {
   return (
-    <section className="mr-4 flex flex-col items-end justify-between">
+    <section className="mr-4 py-2 flex flex-col items-end justify-between hide">
       <div>
         <div className="flex flex-row items-center">
           <WarningIcon
-            size={164}
+            size={140}
             className="animate-[pulse-warning_1s_linear_infinite]"
           />
           <div>
@@ -17,9 +17,11 @@ export default function RightPanel() {
               <div
                 className="
                   absolute inset-0
-                  bg-[repeating-linear-gradient(-45deg,rgba(255,166,0,0.3)_0,rgba(255,166,0,0.3)_20px,transparent_20px,transparent_30px)] bg-size-[42px_42px]
+                  bg-size-[42px_42px]
+                  bg-[repeating-linear-gradient(-45deg,rgba(255,166,0,0.3)_0,rgba(255,166,0,0.3)_20px,transparent_20px,transparent_30px)]
                   animate-[stripes-move_1s_linear_infinite]
-                  mask-[linear-gradient(to_right,transparent,black)] [-webkit-mask-image:linear-gradient(to_right,transparent,black)]
+                  mask-[linear-gradient(to_right,transparent,black)]
+                  [-webkit-mask-image:linear-gradient(to_right,transparent,black)]
                 "
               />
               <p

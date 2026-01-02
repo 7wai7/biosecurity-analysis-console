@@ -15,14 +15,14 @@ export default function EventLog() {
 
   return (
     <div
-      className="w-[30%] relative h-full hide"
+      className="w-[30%] absolute top-0"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
       <div
         className={clsx(
-          "absolute bottom-0 w-full overflow-hidden bg-black border border-emerald-500/20 bevel rounded-tr-2xl rounded-tl-2xl transition-all duration-300",
-          isOpen ? "h-96" : "h-20"
+          "absolute bottom-0 w-full overflow-hidden bg-black terminal-noise border border-emerald-500/20 bevel rounded-tr-2xl rounded-tl-2xl transition-[height] duration-300",
+          isOpen ? "h-96" : "h-12"
         )}
       >
         <div
@@ -32,7 +32,17 @@ export default function EventLog() {
           "
         >
           {logs.map((l, index) => (
-            <LogItem key={index} log={l} />
+            <>
+              <LogItem
+                key={index}
+                log={l}
+                grip={
+                  index === logs.length - 1 && (
+                    <span className="text-emerald-400 animate-[pulse-warning_700ms_linear_infinite] ml-0.5">▌</span>
+                  )
+                }
+              />
+            </>
           ))}
         </div>
       </div>
@@ -40,11 +50,19 @@ export default function EventLog() {
   );
 }
 
-function LogItem({ log }: { log: Log }) {
+function LogItem({ log, grip }: { log: Log; grip?: React.ReactNode }) {
   return (
-    <span className="text-white text-xs font-mono whitespace-pre-wrap break-all text-start">
+    <span
+      className={clsx(
+        "animate-[logFade_0.3s_ease-out] text-xs font-mono whitespace-pre-wrap break-all text-start",
+        log.level === "INFO" && "text-gray-300",
+        log.level === "WARN" && "text-amber-400",
+        log.level === "ERROR" && "text-red-400"
+      )}
+    >
       <span>{`> [${formatTimeInput(log.time)}]`}: </span>
       {log.content}
+      {grip}
     </span>
   );
 }

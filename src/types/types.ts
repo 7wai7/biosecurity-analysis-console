@@ -1,7 +1,10 @@
 export type Log = {
   time: number;
   content: string;
+  level: LogLevel;
 };
+
+export type LogLevel = "INFO" | "WARN" | "ERROR";
 
 export type VitalConfig = {
   label: string;

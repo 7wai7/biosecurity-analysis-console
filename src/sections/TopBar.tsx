@@ -7,8 +7,7 @@ export default function TopBar() {
         font-mono text-[11px]
         px-10 py-2
         border-b border-emerald-500/20
-        bg-black/60
-        backdrop-blur-sm
+        bg-black
       "
     >
       {/* LEFT — SYSTEM INFO */}

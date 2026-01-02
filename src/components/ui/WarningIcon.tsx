@@ -16,7 +16,7 @@ export default function WarningIcon({
   color = "#F5A623",
   strokeBgColor = "#865911",
 }: WarningIconProps) {
-  const side = 80;
+  const side = 100;
   const height = (Math.sqrt(3) / 2) * side;
   const bevel = 10;
 
