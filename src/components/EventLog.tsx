@@ -15,7 +15,7 @@ export default function EventLog() {
 
   return (
     <div
-      className="w-[30%] absolute top-0"
+      className="w-[30%] absolute top-0 hide"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >

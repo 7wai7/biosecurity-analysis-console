@@ -1,4 +1,5 @@
 import EventLog from "../components/EventLog";
+import ToolTip from "../components/ui/ToolTip";
 
 export default function BottomBar() {
   return (
@@ -28,7 +29,6 @@ export default function BottomBar() {
         </p>
       </div>
 
-
       {/* RIGHT — TELEMETRY */}
       <div className="flex flex-col gap-1">
         <div className="grid grid-cols-[minmax(200px,2fr)_minmax(200px,auto)_minmax(200px,auto)] items-center gap-x-4 gap-y-1">
@@ -51,9 +51,17 @@ export default function BottomBar() {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <span className="flex gap-1">
-      <span className="text-gray-400">{label}:</span>
-      <span className="text-emerald-400">{value}</span>
-    </span>
+    <ToolTip content="info" contentClassName="text-[11px]">
+      <span
+        className="
+          flex gap-1 rounded-sm px-1 whitespace-nowrap
+          border border-transparent
+          hover:border-emerald-300/50
+        "
+      >
+        <span className="text-gray-400">{label}:</span>
+        <span className="text-emerald-400">{value}</span>
+      </span>
+    </ToolTip>
   );
 }

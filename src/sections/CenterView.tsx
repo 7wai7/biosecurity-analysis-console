@@ -2,7 +2,7 @@ export default function CenterView() {
   return (
     <section
       className="
-        relative flex flex-col items-center justify-between flex-1 m-4
+        relative flex flex-col items-center justify-between flex-1 m-4 hide
       "
     >
       {/* Фоновий ефект */}
@@ -15,7 +15,7 @@ export default function CenterView() {
       >
         <div
           className="
-            absolute inset-0 pointer-events-none 
+            absolute inset-0 pointer-events-none
             bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.05),rgba(255,255,255,0.05)_1px,transparent_1px,transparent_3px)]
           "
         ></div>
