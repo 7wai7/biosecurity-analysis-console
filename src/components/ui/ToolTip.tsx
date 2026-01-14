@@ -14,7 +14,7 @@ export default function ToolTip({
   className,
   contentClassName,
 }: Props) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -57,7 +57,7 @@ export default function ToolTip({
 
       <div
         className={clsx(
-          "absolute pointer-events-none",
+          "absolute pointer-events-none z-50",
           direction.panelClassName
         )}
       >

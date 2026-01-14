@@ -5,7 +5,13 @@ import WarningIcon from "../components/ui/WarningIcon";
 
 export default function RightPanel() {
   return (
-    <section className="mr-4 py-2 flex flex-col items-end justify-between hide">
+    <section
+      className="
+        px-4 py-2 flex flex-col items-end justify-between
+        border-l border-emerald-500/20
+        bg-black hide
+      "
+    >
       <div>
         <div className="flex flex-row items-center">
           <WarningIcon

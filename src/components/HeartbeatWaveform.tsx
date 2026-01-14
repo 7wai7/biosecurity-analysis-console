@@ -23,7 +23,7 @@ export default function HeartbeatWaveform() {
     <div
       ref={ref}
       className="
-        w-90 h-40 border border-emerald-500/20 mt-4 hide
+        w-90 h-40 border border-emerald-500/20 mt-4
         mask-[linear-gradient(to_right,transparent,black,transparent)]
         [-webkit-mask-image:linear-gradient(to_right,transparent,black,transparent)]
       "

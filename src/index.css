@@ -23,7 +23,8 @@ button {
 }
 
 .hide {
-  visibility: hidden;
+  /* visibility: hidden; */
+  /* opacity: .1; */
 }
 
 .bevel {
